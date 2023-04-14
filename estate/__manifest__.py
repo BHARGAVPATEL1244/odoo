@@ -13,7 +13,7 @@
     'data' : {
         'security/ir.model.access.csv',
         
-        'views/estate_menu.xml',
+        # 'views/estate_menu.xml',
         'views/property_view.xml',
         'views/property_type_view.xml',
         'views/property_offer_view.xml',
@@ -27,7 +27,7 @@
         'data/mail_report_template.xml',
         'data/mail_offer_accept_template.xml',
         'data/mail_offer_reject_template.xml',
-        # 'data/ir_cron_template.xml',
+        'data/mail_property_created_template.xml',
         
     } 
     }

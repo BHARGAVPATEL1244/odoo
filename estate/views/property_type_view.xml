@@ -79,4 +79,7 @@
         <field name='view_mode'>kanban,tree,form</field>
     </record>
 
+    <menuitem id='estate.menu_2_types' action="action_property_types" parent='estate.menu_2'
+         name='Property Types' sequence='20' />
+
 </odoo>

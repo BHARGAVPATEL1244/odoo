@@ -21,7 +21,7 @@
                             class="border border-primary">
                             <div class=" card">
                                 <img class='card-img-top'
-                                    t-att-src="kanban_image('real.estate','property_image',record.id.raw_value)" alt='barcode'/>
+                                    t-att-src="kanban_image('real.estate','property_image',record.id.raw_value)" alt='Property Image'/>
                             </div>
                             <div class="card-body">
                                 <h1>
@@ -34,7 +34,7 @@
                                         options="{'color_field': 'color'}" />
                                 </div>
                                 <div>
-                                    <h6> Espected Price : <field name="expected_price" />
+                                    <h6> Expected Price : <field name="expected_price" />
                                     </h6>
                                 </div>
                                 <div>
@@ -102,14 +102,17 @@
             <form>
                 <header>
                     <button name="action_do_sold" type="object" string="Sold"
-                        class="btn btn-success" />
+                        class="btn btn-success"  />
                     <button name="action_do_canceled" type="object" string="Cancel"
                         class="btn btn-danger" />
 
                     <button name="%(action_report_real_estate)d" string="Print" type="action"
-                        class="btn btn-primary" icon="fa-print"/>
-                    <button name="action_send_report_email" type="object" string="Email"
-                        class="btn btn-primary" icon="fa-envelope"/>
+                        class="btn btn-primary" icon="fa-print" data-hotkey="p"/>
+                    <button name="action_send_report_email" type="object" string="Email Report"
+                        class="btn btn-primary" icon="fa-envelope" data-hotkey="e"/>
+                    <button name="action_send_report_whatsapp" type="object" string="Whatsapp"
+                        class="btn btn-primary" icon="fa-whatsapp" data-hotkey="w"/>
+                    
 
                     <field name="state" widget="statusbar"
                         statusbar_visible="new,offer_received,offer_accepted,sold" default='new' />
@@ -128,12 +131,15 @@
                             <field name='postcode' class="form-control" />
                             <field name='date_availability' class="form-control" />
                             <field name='email' class="form-control" placeholder='xyz@gmail.com' />
+                            <field name='phone' class="form-control" placeholder='+911234567890' />
                         </group>
                         <group>
                             <field name='expected_price' class="form-control" />
                             <field name='best_offer' readonly='1' class="form-control"
                                 force_save='1' />
                             <field name='selling_price' readonly='1' class="form-control" />
+                            <field name='state_id' class="form-control" />
+                            <field name='country_id' readonly='1' class="form-control" />
                         </group>
                     </group>
                     <notebook>
@@ -265,5 +271,17 @@
         <field name='res_model'>real.estate</field>
         <field name='view_mode'>kanban,tree,calendar,form,graph,pivot,search</field>
     </record>
+
+
+    <menuitem id='estate.root_menu' name='Real Estate' />
+
+     <!-- sub menu -->
+     <menuitem id='estate.menu_1' parent='estate.root_menu' name='Estate' action="action_estate_profile" sequence='1'/>
+     <menuitem id='estate.menu_2' parent='estate.root_menu' name='Property' sequence='2' />
+ 
+     <!-- sub sub menu -->
+     
+     
+     
 
 </odoo>

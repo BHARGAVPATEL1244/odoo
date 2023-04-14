@@ -67,4 +67,7 @@
         <field name='view_mode'>kanban,tree,form</field>
     </record>
 
+    <menuitem id='estate.menu_2_tags' action="action_property_tags" parent='estate.menu_2'
+         name='Property Tags' sequence='10' />
+
 </odoo>

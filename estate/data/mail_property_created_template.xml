@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/css" href="/property_created_style.css"?>
 <?xml-stylesheet type="text/css" href="css/style.css"?>
 <odoo>
-    <data noupdate="1">
-        <record id="property_report_email" model="mail.template">
-            <field name="name">Property Report : Send By Email</field>
+    <data>
+        <record id="property_created_email" model="mail.template">
+            <field name="name">property Created : Send By Email</field>
             <field name="model_id" ref="estate.model_real_estate"/>
             <field name="email_from">{{ (object.salesmen.email) }}</field>
             <field name="email_to">{{ (object.email) }}</field>
-            <field name="subject">Property Report:{{ (object.name) }}</field>
-            <field name="description">sent project report to the property owner</field>
+            <field name="subject">Property Created</field>
+            <field name="description">sent property created mail</field>
             <field name="body_html" type="html">
                 <div class="es-wrapper-color">
                     <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
@@ -66,7 +67,7 @@
                                                                                             </tr>
                                                                                             <tr>
                                                                                                 <td align="center" class="esd-block-text">
-                                                                                                    <p style="font-size: 18px;">We hope you enjoyed.<br/>Here's your Report.</p>
+                                                                                                    <p style="font-size: 18px;">We hope you enjoyed.</p>
                                                                                                 </td>
                                                                                             </tr>
                                                                                         </tbody>
@@ -83,132 +84,232 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <table cellpadding="0" cellspacing="0" class="es-content" align="center">
-                                        <tbody>
-                                            <tr>
-                                                <td class="esd-stripe" align="center">
-                                                    <table bgcolor="#ffffff" class="es-content-body" align="center" cellpadding="0" cellspacing="0" width="600">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="esd-structure es-p20r es-p20l" align="left">
-                                                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td width="560" class="esd-container-frame" align="center" valign="top">
-                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td align="center" class="esd-block-spacer" height="30"></td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table cellpadding="0" cellspacing="0" class="es-content" align="center">
-                                        <tbody>
-                                            <tr>
-                                                <td class="esd-stripe" align="center">
-                                                    <table bgcolor="#ffffff" class="es-content-body" align="center" cellpadding="0" cellspacing="0" width="600" style="border-left:3px solid #cccccc;border-right:3px solid #cccccc;border-top:3px solid #cccccc;border-bottom:3px solid #cccccc;">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="esd-structure es-p20t" align="left" bgcolor="#efefef" style="background-color: #efefef;" esd-custom-block-id="334891">
-                                                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                                                        <tbody>
-                                                                            <tr>
-                                                                                <td width="594" class="esd-container-frame" align="center" valign="top">
-                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
-                                                                                        <tbody>
-                                                                                            <tr>
-                                                                                                <td align="center" class="esd-block-text">
-                                                                                                    <h3><b>Your report attached with this Email.</b></h3>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td align="center" class="esd-block-spacer es-p10t es-p10b" style="font-size:0">
-                                                                                                    <table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0" style="display: inline-table; width: 100% !important;">
-                                                                                                        <tbody>
-                                                                                                            <tr>
-                                                                                                                <td style="border-bottom: 1px solid #cccccc; background: none; height: 1px; width: 100%; margin: 0px;"></td>
-                                                                                                            </tr>
-                                                                                                        </tbody>
-                                                                                                    </table>
-                                                                                                </td>
-                                                                                            </tr>
-                                                                                        </tbody>
-                                                                                    </table>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </tbody>
-                                                                    </table>
-                                                                </td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
+
+
+                                    <div class="es-wrapper-color"> \ <table class="es-wrapper" width="100%" cellspacing="0" cellpadding="0">
                                         <tbody>
                                             <tr>
                                                 <td class="esd-email-paddings" valign="top">
-                                                    <table class="es-content esd-footer-popover" cellspacing="0" cellpadding="0" align="center">
+                                                    <table cellpadding="0" cellspacing="0" class="es-content esd-header-popover" align="center">
                                                         <tbody>
                                                             <tr>
                                                                 <td class="esd-stripe" align="center">
-                                                                    <table class="es-content-body" style="background-color: #ecebf0;" width="600" cellspacing="0" cellpadding="0" bgcolor="#ecebf0" align="center">
+                                                                    <table bgcolor="#efefef" class="es-content-body" align="center" cellpadding="0" cellspacing="0" width="600" style="border-radius: 20px 20px 0 0 ">
                                                                         <tbody>
                                                                             <tr>
-                                                                                <td class="esd-structure" esd-general-paddings-checked="true" style="background-color: #f1f1f1;" esd-custom-block-id="3714" align="left" bgcolor="#f1f1f1" esdev-config="h3">
-                                                                                    <table cellspacing="0" cellpadding="0" width="100%">
+                                                                                <td class="esd-structure es-p40t es-p40r es-p40l" align="left">
+                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
                                                                                         <tbody>
                                                                                             <tr>
-                                                                                                <td class="esd-container-frame" align="left" width="600">
-                                                                                                    <table width="100%" cellspacing="0" cellpadding="0">
+                                                                                                <td width="520" class="esd-container-frame" align="center" valign="top">
+                                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
                                                                                                         <tbody>
                                                                                                             <tr>
-                                                                                                                <td class="esd-block-text es-p15t es-p5b es-p15r es-p15l" align="center">
-                                                                                                                    <h3><span t-field="object.name" /></h3>
+                                                                                                                <td align="left" class="esd-block-image es-m-txt-c" style="font-size: 0px;"><img src="https://tlr.stripocdn.email/content/guids/CABINET_ee77850a5a9f3068d9355050e69c76d26d58c3ea2927fa145f0d7a894e624758/images/group_4076323.png" alt="Confirm email" style="display: block; border-radius: 100px; font-size: 12px;" width="100" title="Confirm email" /></td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="es-p20t es-p40r es-p40l esd-structure" align="left">
+                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td width="520" class="esd-container-frame" align="center" valign="top">
+                                                                                                    <table cellpadding="0" cellspacing="0" width="100%" bgcolor="#fafafa" style="background-color: #fafafa; border-radius: 10px; border-collapse: separate;">
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                                <td align="left" class="esd-block-text es-p20">
+                                                                                                                    <h3>ThankYou, <span t-field="object.salesmen" /></h3>
+                                                                                                                    <p><br/></p>
+                                                                                                                    <p>You're receiving this message because you recently create property.<br/></p>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table cellpadding="0" cellspacing="0" class="es-content" align="center">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="esd-stripe" align="center" esdev-config="h4">
+                                                                    <table bgcolor="#efefef" class="es-content-body" align="center" cellpadding="0" cellspacing="0" width="600">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="esd-structure es-p40r es-p40l" align="left">
+                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td width="520" class="esd-container-frame" align="center" valign="top">
+                                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                                <td align="left" class="esd-block-text">
+                                                                                                                    <p>Thanks,<br/>Real Estate</p>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td class="esd-block-text es-m-txt-c es-p5b es-p15r es-p15l" align="center">
-                                                                                                                    <p style="color: #999999; font-weight: bold; line-height: 150%;">Owner Name : <span t-field="object.salesmen" /></p>
+                                                                                                                <td align="center" class="esd-block-spacer es-p40t es-p20b" style="font-size:0">
+                                                                                                                    <table border="0" width="100%" height="100%" cellpadding="0" cellspacing="0">
+                                                                                                                        <tbody>
+                                                                                                                            <tr>
+                                                                                                                                <td style="border-bottom: 1px solid #666666; background: unset; height: 1px; width: 100%; margin: 0px;"></td>
+                                                                                                                            </tr>
+                                                                                                                        </tbody>
+                                                                                                                    </table>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                    <table cellpadding="0" cellspacing="0" class="es-content esd-footer-popover" align="center">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td class="esd-stripe" align="center" esd-custom-block-id="57963">
+                                                                    <table bgcolor="#ffffff" class="es-content-body" align="center" cellpadding="0" cellspacing="0" width="600" style="border-left:4px solid #FFF2CC;border-right:4px solid #FFF2CC;border-top:4px solid #FFF2CC;border-bottom:4px solid #FFF2CC;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td class="esd-structure es-p20t es-p20r es-p20l" align="left">
+                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td width="552" class="esd-container-frame" align="center" valign="top">
+                                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                                <td align="left" class="esd-block-text">
+                                                                                                                    <h2>Look At Your <span t-field="object.property_type_id" /></h2>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td class="esd-structure es-p20t es-p20b es-p20r es-p20l" align="left" bgcolor="transparent" style="background-color: transparent;">
+                                                                                    <table cellpadding="0" cellspacing="0" class="es-left" align="left">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td width="266" class="es-m-p20b esd-container-frame" align="left">
+                                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                                        <tbody>
+                                                                                                            <tr class="es-visible-amp-html-only">
+                                                                                                                <td align="center" class="esd-block-amp-carousel amp-carousel-6233">
+                                                                                                                    <!-- <div t-field="object.property_image" /> -->
+                                                                                                                    <!-- <amp-carousel id="amp-carousel-6233" on="slideChange:amp-carousel-6233-selector.toggle(index=event.index, value=true)" width="266" height="178" layout="responsive" type="slides">
+                                                                                                                        <div class="slide-1">
+                                                                                                                            <div>
+                                                                                                                                    <amp-img src="https://tlr.stripocdn.email/content/guids/CABINET_161efacca4c2ed3f792a756d30d322d2/images/23351565854542121.jpg" width="640" height="426" layout="responsive" ></amp-img>
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="slide-2">
+                                                                                                                            <div>
+                                                                                                                                    <amp-img src="https://tlr.stripocdn.email/content/guids/CABINET_161efacca4c2ed3f792a756d30d322d2/images/43561565854481408.jpg" width="640" height="426" layout="responsive" ></amp-img>
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                        <div class="slide-3">
+                                                                                                                            <div>
+                                                                                                                                    <amp-img src="https://tlr.stripocdn.email/content/guids/CABINET_5f6765c2cbc8bafe440e4c81408a31b9/images/90111505897423100.jpg" width="640" height="426" layout="responsive"></amp-img>
+                                                                                                                                </div>
+                                                                                                                        </div>
+                                                                                                                    </amp-carousel> -->
+                                                                                                                    <!-- <div class="carousel-preview">
+                                                                                                                        <amp-selector id="amp-carousel-6233-selector" on="select:amp-carousel-6233.goToSlide(index=event.targetOption)" layout="container">
+                                                                                                                            <amp-img option="0" src="https://tlr.stripocdn.email/content/guids/CABINET_161efacca4c2ed3f792a756d30d322d2/images/23351565854542121.jpg" width="60" height="40" ></amp-img>
+                                                                                                                            <amp-img option="1" src="https://tlr.stripocdn.email/content/guids/CABINET_161efacca4c2ed3f792a756d30d322d2/images/43561565854481408.jpg" width="60" height="40" ></amp-img>
+                                                                                                                            <amp-img option="2" src="https://tlr.stripocdn.email/content/guids/CABINET_5f6765c2cbc8bafe440e4c81408a31b9/images/90111505897423100.jpg" width="60" height="40" ></amp-img>
+                                                                                                                        </amp-selector>
+                                                                                                                    </div> -->
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                        </tbody>
+                                                                                                    </table>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                    <table cellpadding="0" cellspacing="0" class="es-right" align="right">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td width="266" align="left" class="esd-container-frame">
+                                                                                                    <table cellpadding="0" cellspacing="0" width="100%">
+                                                                                                        <tbody>
+                                                                                                            <tr>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;"><span style="font-size:25px;" t-field="object.name" /></h4>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td class="esd-block-text es-m-txt-c es-p5b es-p15r es-p15l" align="center">
-                                                                                                                    <p style="color: #999999; font-weight: bold; line-height: 150%;">Email : <span t-field="object.email" /></p>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;">Tags : <span t-field="object.tags" /></h4>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td class="esd-block-text es-m-txt-c es-p5b es-p15r es-p15l" align="center">
-                                                                                                                    <p style="color: #999999; font-weight: bold; line-height: 150%;">property type : <span t-field="object.property_type_id" /></p>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;">Property type : <span t-field="object.property_type_id" /></h4>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td class="esd-block-text es-m-txt-c es-p5b es-p15r es-p15l" align="center">
-                                                                                                                    <p style="color: #999999; font-weight: bold; line-height: 150%;">Available date : <span t-field="object.date_availability" /></p>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;">postcode : <span t-field="object.postcode" /></h4>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td class="esd-block-text es-m-txt-c es-p5b es-p15r es-p15l" align="center">
-                                                                                                                    <p style="color: #999999; font-weight: bold; line-height: 150%;"><span t-field="object.bedrooms" />bd, <span t-field="object.total_area" /> sqft</p>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;"><span t-field="object.bedrooms" /> bd</h4>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                             <tr>
-                                                                                                                <td class="esd-block-text es-m-txt-c es-p10t es-p5b es-p15r es-p15l" align="center">
-                                                                                                                    <h3 style="color: #bca76e;">$<span t-field="object.expected_price" class="price"/></h3>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;">area : <span t-field="object.total_area" /></h4>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;">Garage : <span t-field="object.garage" /></h4>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td class="esd-block-text" align="left">
+                                                                                                                    <h4 style="color: #333333;">Garden : <span t-field="object.garden" /></h4>
+                                                                                                                </td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td align="center" class="esd-block-spacer" height="3"></td>
+                                                                                                            </tr>
+                                                                                                            <tr>
+                                                                                                                <td class="esd-block-text es-p10t" align="left" bgcolor="transparent">
+                                                                                                                    <p style="color: #333333; line-height: 150%; font-size: 24px;"><span style="font-size: 18px;">$</span><span class="price"><span t-field="object.expected_price" /></span></p>
                                                                                                                 </td>
                                                                                                             </tr>
                                                                                                         </tbody>
@@ -229,6 +330,8 @@
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+
                                     <table cellpadding="0" cellspacing="0" class="es-content" align="center">
                                         <tbody>
                                             <tr>
@@ -326,8 +429,6 @@
                     </table>
                 </div>
             </field>
-            <field name="report_template" ref="action_report_real_estate"/>
-            <field name="report_name">Property_report_{{ (object.name or '').replace('/','_') }}</field>
         </record>
     </data>
 </odoo>

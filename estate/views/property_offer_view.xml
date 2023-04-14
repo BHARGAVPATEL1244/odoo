@@ -69,4 +69,9 @@
         <field name='view_mode'>tree,form</field>
     </record>
 
+    
+
+    <menuitem id='estate.menu_2_offers' action="action_property_offer" parent='estate.menu_2'
+         name='Property Offers' sequence='30' />
+
 </odoo>

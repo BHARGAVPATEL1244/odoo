@@ -1,6 +1,9 @@
 from odoo import api, fields, models
 from odoo import exceptions
 import random
+import base64
+import urllib.parse
+
 
 
 class RealEstate(models.Model):
@@ -12,6 +15,7 @@ class RealEstate(models.Model):
     buyer = fields.Char(string='Buyer', readonly=True,
                         default='property not sold yet!', copy=False)
     email = fields.Char(string='Email', required=True)
+    phone = fields.Char(string="Phone Number", required=True , default='+917572869098')
 
     # date fields 
     date_availability = fields.Date(
@@ -40,6 +44,8 @@ class RealEstate(models.Model):
     buyer_id = fields.Many2one('property.offer')
     salesmen = fields.Many2one(
         'res.users', string='Salesmen', readonly=True, default=lambda self: self.env.user)
+    state_id = fields.Many2one('res.country.state', string = "State" )
+    country_id = fields.Many2one('res.country', string = "Country", related="state_id.country_id")
 
     # one2many fields
     new_offers = fields.One2many('property.offer', 'property_id', copy=False)
@@ -63,7 +69,7 @@ class RealEstate(models.Model):
     
     
     
-     # Generate barcode number
+    # Generate barcode number
     @api.model
     def _generate_code(self):
         return str(random.getrandbits(42))
@@ -189,6 +195,41 @@ class RealEstate(models.Model):
         template_id = self.env.ref('estate.property_report_email').id
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(self.id, force_send=True)
+        
+        
+    #send whatsapp Massage
+    def action_send_report_whatsapp(self):
+        message = 'Hi %s, you property : %s is created , Thank you' % (self.salesmen.name, self.name)
+        whatsapp_api_url = 'https://api.whatsapp.com/send?phone=%s&text=%s' % (self.phone, message)
+        return{
+            'type':'ir.actions.act_url',
+            'target':'new',
+            'url': whatsapp_api_url
+        }
+    
+    # Send report whatsapp
+    # def action_send_report_whatsapp(self):
+    #     # Generate QWeb report output
+    #     report = self.env.ref('estate.action_report_real_estate')  # Replace with your actual report ID
+    #     report_data, report_type = report.render_qweb_pdf()
+
+    #     # Encode report output as Base64
+    #     report_data_base64 = base64.b64encode(report_data)
+
+    #     # Prepare WhatsApp message with text and report attachment
+    #     message = 'Hi %s, your number is: %s. Thank you' % (self.phone, self.name)
+    #     whatsapp_api_url = 'https://api.whatsapp.com/send?phone=%s&text=%s&data=%s' % (
+    #         self.phone,
+    #         urllib.parse.quote(message),
+    #         report_data_base64.decode('utf-8')
+    #     )
+
+    #     return {
+    #         'type': 'ir.actions.act_url',
+    #         'target': 'new',
+    #         'url': whatsapp_api_url
+    #     }
+        
 
 
     # set garden area and orientation onchange garden
@@ -232,12 +273,21 @@ class RealEstate(models.Model):
                 raise exceptions.UserError(
                     ("You can not delete canceled property!")
                 )
+                
+                
+
+                
+    # Send mail when property create
+    @api.model
+    def create(self, vals):
+        # Call super to create the property record
+        property = super(RealEstate, self).create(vals)
+
+        template_id = self.env.ref('estate.property_created_email').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(property.id, force_send=True)
+
+        return property
 
 
 
-    # #send mail autometicaly
-    # def send_auto_mail(self):
-    #     for rec in self :
-    #         template_id = self.env.ref('estate.property_report_email').id
-    #         template = self.env['mail.template'].browse(template_id)
-    #         template.send_mail(self.id, force_send=True)
