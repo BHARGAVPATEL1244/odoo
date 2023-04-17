@@ -8,7 +8,7 @@
     'category': 'project',
     'description' : 'this is new real estate project',
     
-    'depends' : ['base','sale','mail'],
+    'depends' : ['base', 'sale', 'mail'],
     
     'data' : {
         'security/ir.model.access.csv',

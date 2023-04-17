@@ -1,8 +1,6 @@
 from odoo import api, fields, models
 from odoo import exceptions
 import random
-import base64
-import urllib.parse
 
 
 
@@ -12,8 +10,7 @@ class RealEstate(models.Model):
     # simple fields
     name = fields.Char(string='name')
     postcode = fields.Char(string='Postcode')
-    buyer = fields.Char(string='Buyer', readonly=True,
-                        default='property not sold yet!', copy=False)
+    buyer = fields.Many2one('res.partner' ,string='Buyer', readonly=True, copy=False)
     email = fields.Char(string='Email', required=True)
     phone = fields.Char(string="Phone Number", required=True , default='+917572869098')
 
@@ -66,7 +63,6 @@ class RealEstate(models.Model):
                                            ('south', 'South'),
                                            ('east', 'East'),
                                            ('west', 'West')], string='Garden Orientation', copy=False)
-    
     
     
     # Generate barcode number
@@ -169,6 +165,14 @@ class RealEstate(models.Model):
                 raise exceptions.UserError(
                     ('Property Already Sold')
                 )
+            elif rec.state == 'new':
+                raise exceptions.UserError(
+                    ('First u have to select offer')
+                )
+            elif rec.state == 'offer_received':
+                raise exceptions.UserError(
+                    ('First u have to select offer')
+                )
             else:
                 rec.state = 'sold'
                 return True
@@ -207,30 +211,6 @@ class RealEstate(models.Model):
             'url': whatsapp_api_url
         }
     
-    # Send report whatsapp
-    # def action_send_report_whatsapp(self):
-    #     # Generate QWeb report output
-    #     report = self.env.ref('estate.action_report_real_estate')  # Replace with your actual report ID
-    #     report_data, report_type = report.render_qweb_pdf()
-
-    #     # Encode report output as Base64
-    #     report_data_base64 = base64.b64encode(report_data)
-
-    #     # Prepare WhatsApp message with text and report attachment
-    #     message = 'Hi %s, your number is: %s. Thank you' % (self.phone, self.name)
-    #     whatsapp_api_url = 'https://api.whatsapp.com/send?phone=%s&text=%s&data=%s' % (
-    #         self.phone,
-    #         urllib.parse.quote(message),
-    #         report_data_base64.decode('utf-8')
-    #     )
-
-    #     return {
-    #         'type': 'ir.actions.act_url',
-    #         'target': 'new',
-    #         'url': whatsapp_api_url
-    #     }
-        
-
 
     # set garden area and orientation onchange garden
     @api.onchange('garden')

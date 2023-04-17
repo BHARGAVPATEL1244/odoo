@@ -20,7 +20,7 @@
                                                 t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', {docs.name
                                                     ,docs.salesmen.name,
                                                     docs.expected_price,
-                                                    docs.barcode}, 120, 120)"
+                                                    docs.barcode}, 140, 140)"
                                                 />
                                         </span>
                                         <span style="margin-left:10px;">

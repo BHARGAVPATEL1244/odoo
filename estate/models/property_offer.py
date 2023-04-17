@@ -77,7 +77,7 @@ class PropertyOffer(models.Model):
                 
                 rec.property_id.selling_price = rec.price
                 rec.property_id.state = 'offer_accepted'
-                rec.property_id.buyer = rec.partner_id.name
+                rec.property_id.buyer = rec.partner_id.id
                 
                 rec.offer_status = 'accept'
                                 
@@ -85,7 +85,7 @@ class PropertyOffer(models.Model):
                 template = self.env['mail.template'].browse(template_id)
                 template.send_mail(self.id, force_send=True)
 
-     # offer reject
+    # offer reject
     def on_reject(self):
         for rec in self:
             if rec.offer_status == 'new':

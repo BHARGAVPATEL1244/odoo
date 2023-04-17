@@ -8,10 +8,12 @@ class AccountMove(models.Model):
 
     def action_do_sold(self):
         res = super(AccountMove, self).action_do_sold()
-        # print('buyer : ' ,self.buyer_id)
+        print('buyer : ' ,self.buyer)
+        print('++++res+++',res)
 
         val = self.env["account.move"].create({
             'name': self.name,
+            'partner_id': self.buyer.id,
             'move_type': 'out_invoice',
             'invoice_date':fields.datetime.now(),
             'invoice_line_ids': [
