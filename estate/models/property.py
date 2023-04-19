@@ -7,7 +7,7 @@ import random
 class RealEstate(models.Model):
     _name = 'real.estate'
 
-    # simple fields
+    # simple fields 
     name = fields.Char(string='name')
     postcode = fields.Char(string='Postcode')
     buyer = fields.Many2one('res.partner' ,string='Buyer', readonly=True, copy=False)
@@ -18,23 +18,23 @@ class RealEstate(models.Model):
     date_availability = fields.Date(
         string='Date', default=fields.datetime.now())
 
-    # float fields
+    # float fields 
     expected_price = fields.Float(string='Expected Price')
     selling_price = fields.Float(string='Selling Price')
     best_offer = fields.Float(string='Best Offer',copy=False)
 
-    # int fileds
+    # int fileds 
     bedrooms = fields.Integer(string='Bedrooms', default=2)
     living_area = fields.Integer(string='Living Area')
     facades = fields.Integer(string='Facades')
     garden_area = fields.Integer(string='Garden Area')
     total_area = fields.Integer(string='Total Area', compute='_total_area')
 
-    # bool fields
+    # bool fields 
     garage = fields.Boolean(string='Garage')
     garden = fields.Boolean(string='Garden', default=False)
 
-    # many2one fileds
+    # many2one fileds 
     tags = fields.Many2many('property.tags', string='tags')
     user_id = fields.Many2one('res.users', string='User Id')
     property_type_id = fields.Many2one('property.type')
@@ -44,10 +44,10 @@ class RealEstate(models.Model):
     state_id = fields.Many2one('res.country.state', string = "State" )
     country_id = fields.Many2one('res.country', string = "Country", related="state_id.country_id")
 
-    # one2many fields
+    # one2many fields 
     new_offers = fields.One2many('property.offer', 'property_id', copy=False)
 
-    # image field
+    # image fields 
     property_image = fields.Image(string='Image')
 
     # selection field
@@ -64,8 +64,7 @@ class RealEstate(models.Model):
                                            ('east', 'East'),
                                            ('west', 'West')], string='Garden Orientation', copy=False)
     
-    
-    # Generate barcode number
+    # Generate barcode number 
     @api.model
     def _generate_code(self):
         return str(random.getrandbits(42))
@@ -81,7 +80,7 @@ class RealEstate(models.Model):
     #                     ('check_garden_area', 'CHECK(garden_area > 0 )', 'Garden Area Must Be Select After Availability Date.')]
 
 
-    # constrain for expected price
+    # constrain for expected price 
     @api.onchange('expected_price')
     def _check_expected_price(self):
         for rec in self:
@@ -93,7 +92,7 @@ class RealEstate(models.Model):
                 )
 
 
-    # constrain for bedrooms
+    # constrain for bedrooms 
     @api.onchange('bedrooms')
     def _check_bedrooms(self):
         for rec in self:
@@ -105,7 +104,7 @@ class RealEstate(models.Model):
                 )
 
 
-    # constrain for living area
+    # constrain for living area 
     @api.onchange('living_area')
     def _check_living_area(self):
         for rec in self:
@@ -117,7 +116,7 @@ class RealEstate(models.Model):
                 )
 
 
-    # constrain for facades
+    # constrain for facades 
     @api.onchange('facades')
     def _check_facades(self):
         for rec in self:
@@ -253,14 +252,13 @@ class RealEstate(models.Model):
                 raise exceptions.UserError(
                     ("You can not delete canceled property!")
                 )
-                
+            
                 
 
                 
     # Send mail when property create
     @api.model
     def create(self, vals):
-        # Call super to create the property record
         property = super(RealEstate, self).create(vals)
 
         template_id = self.env.ref('estate.property_created_email').id

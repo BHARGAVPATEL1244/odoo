@@ -18,12 +18,12 @@ msgstr ""
 #. module: estate
 #: model:ir.actions.report,print_report_name:estate.action_report_real_estate
 msgid "'Real Estate Report - %s' % (object.name)"
-msgstr ""
+msgstr "'Immobilienbericht - %s' % (object.name)"
 
 #. module: estate
 #: model_terms:ir.ui.view,arch_db:estate.estate_form_view
 msgid "+911234567890"
-msgstr ""
+msgstr "+911234567890"
 
 #. module: estate
 #: model:mail.template,body_html:estate.property_created_email
@@ -3929,3 +3929,4 @@ msgstr "Stichworte"
 #: model_terms:ir.ui.view,arch_db:estate.property_offer_form_view
 msgid "xyz@gmail.com"
 msgstr "xyz@gmail.com"
+

@@ -42,7 +42,7 @@ class PropertyOffer(models.Model):
                 raise exceptions.UserError(
                     ('Price must be positive number')
                     )
-           
+
     # constrains for expected days      
     @api.onchange('expected_days')
     def _check_expected_days(self):
@@ -100,7 +100,6 @@ class PropertyOffer(models.Model):
             else:
                 raise exceptions.UserError(('offer already rejected'))
 
-
     # check price is Higher then expected price 
     @api.constrains('price')
     def _check_price(self):
@@ -108,7 +107,6 @@ class PropertyOffer(models.Model):
             if rec.price < (rec.property_id.expected_price * 90)/100:
                 raise ValidationError(
                     "You can not enter amount less then 90/% /of expected amount ")
-
 
     # change state when offer recived
     @api.constrains('price')
@@ -133,6 +131,3 @@ class PropertyOffer(models.Model):
                 rec.expected_days = (
                     rec.deadlines - rec.property_id.date_availability).days
                 
-                
-    
-            
