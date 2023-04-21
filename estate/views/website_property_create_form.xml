@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id='nemu_property_create_form' model='website.menu'>
+    <record id='menu_property_create_form' model='website.menu'>
         <field name='name'>Create Property</field>
         <field name='url'>/property_form</field>
         <field name='parent_id' ref='website.main_menu' />
         <field name='sequence'>55</field>
     </record>
 
+
+    <!-- property form page -->
     <template id='create_property' name="Create Property">
         <t t-call='website.layout'>
-            <link rel="stylesheet" href="estate/static/website_form/css/style.css" />
+            <link rel="stylesheet" href="estate/static/property_website/css/style.css" />
 
             <div class="container">
                     <br/><br/>
                     <div class="form-wrap">
-                        <form role='form' action='/create/property' method="POST">
+                        <form role='form' action='/create/property' method="POST" enctype="multipart/form-data">
                             <input type='hidden' name='csrf_token'
                                 t-att-value='request.csrf_token()' />
 
@@ -229,6 +231,8 @@
 
     </template>
 
+
+    <!-- thank you page -->
     <record id='user_thanks' model="website.page">
         <field name='name'>Thank You</field>
         <field name='type'>qweb</field>
@@ -255,6 +259,9 @@
                                         <div class="text-center">
                                             <h1>Thank You !</h1>
                                             <p>We've send the mail to your inbox.</p>
+                                        </div>
+                                        <div class="text-center">
+                                            <a t-att-href="'/property_form'" class="btn btn-primary">Back</a>
                                         </div>
                                     </div>
                                 </div>

@@ -33,5 +33,4 @@ class PropertyType(models.Model):
                 'view_id' : self.env.ref('estate.property_offer_list_view').id ,
                 'domain' : [('id' , 'in' ,rec.house.new_offers.ids)],
                 'type' : 'ir.actions.act_window'
-                
-}
+                    }   

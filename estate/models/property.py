@@ -1,6 +1,10 @@
-from odoo import api, fields, models
+from odoo import api, fields, models,_
 from odoo import exceptions
+from odoo.exceptions import ValidationError
 import random
+import xlsxwriter
+import io
+
 
 
 
@@ -64,6 +68,11 @@ class RealEstate(models.Model):
                                            ('east', 'East'),
                                            ('west', 'West')], string='Garden Orientation', copy=False)
     
+    #excel report
+    summary_data = fields.Char('Name', size=256)
+    file_name = fields.Binary('Pay Slip Summary Report', readonly=True)
+    select_state = fields.Selection([('choose', 'choose'), ('get', 'get')],
+                            default='choose')
     # Generate barcode number 
     @api.model
     def _generate_code(self):
@@ -174,7 +183,17 @@ class RealEstate(models.Model):
                 )
             else:
                 rec.state = 'sold'
-                return True
+                notification = {
+                                'type': 'ir.actions.client',
+                                'tag': 'display_notification',
+                                'params': {
+                                            'title': _('Sold'),
+                                            'type': 'success',
+                                            'message': 'Your Property Sold',
+                                            'sticky': False,
+                                            }
+                                }
+                return notification
 
 
     # cancel button action
@@ -190,14 +209,34 @@ class RealEstate(models.Model):
                 )
             else:
                 rec.state = 'cancel'
-                # print(rec.report_data)
-                return True
+                notification = {
+                                'type': 'ir.actions.client',
+                                'tag': 'display_notification',
+                                'params': {
+                                            'title': _('Cancel'),
+                                            'type': 'warning',
+                                            'message': 'Your Property Cancel',
+                                            'sticky': False,
+                                            }
+                                }
+                return notification
             
     #send report email
     def action_send_report_email(self):
         template_id = self.env.ref('estate.property_report_email').id
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(self.id, force_send=True)
+        notification = {
+                        'type': 'ir.actions.client',
+                        'tag': 'display_notification',
+                        'params': {
+                                    'title': _('Email Send'),
+                                    'type': 'success',
+                                    'message': 'Your Email has been sent',
+                                    'sticky': False,
+                                    }
+                        }
+        return notification       
         
         
     #send whatsapp Massage
@@ -235,7 +274,7 @@ class RealEstate(models.Model):
     def error_on_delete(self):
         for rec in self:
             if rec.state == 'new':
-                pass
+                pass  
             elif rec.state == 'offer_received':
                 raise exceptions.UserError(
                     ("Offer's in ur property can not delete property!")
@@ -264,8 +303,6 @@ class RealEstate(models.Model):
         template_id = self.env.ref('estate.property_created_email').id
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(property.id, force_send=True)
-
+    
         return property
-
-
 

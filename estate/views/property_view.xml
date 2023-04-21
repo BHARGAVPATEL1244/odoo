@@ -112,6 +112,7 @@
                     <button name="action_send_report_whatsapp" type="object" string="Whatsapp"
                         class="btn btn-primary" icon="fa-whatsapp" data-hotkey="w"/>
                     
+                    
 
                     <field name="state" widget="statusbar"
                         statusbar_visible="new,offer_received,offer_accepted,sold" default='new' />

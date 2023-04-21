@@ -22,6 +22,8 @@
         'views/saleorder_field.xml',
         
         'views/website_property_create_form.xml',
+        'views/website_property.xml',
+        'views/website_property_user_created.xml',
         
         #report template
         'report/report.xml',
@@ -41,6 +43,8 @@
     "assets" :{
         "web.assets_frontend":[
             "estate/static/js/property_form.js",
+            "estate/static/css/style.css",
+            "estate/static/css/property_single_product_style.css",
         ]
     },
     'installable': True,
