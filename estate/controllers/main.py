@@ -23,7 +23,7 @@ class RealEstate(http.Controller):
         Country = http.request.env['res.country']
         countries = Country.search([])
         
-        # property_image = None
+        # # property_image = None
         # if 'property_image' in request.httprequest.files:
         #     property_images = request.httprequest.files.get('property_image')
         #     # property_images = property_images.read()
@@ -59,7 +59,6 @@ class RealEstate(http.Controller):
         property = Property.sudo().browse(property_id)
         return http.request.render('estate.property_details',{'property': property})
         
-        
     #property page value
     @http.route('/properties/<int:property_id>/create_offer', type='http', auth="user", website=True)
     def create_offer(self, property_id, **post):
@@ -69,7 +68,6 @@ class RealEstate(http.Controller):
         PropertyOffers = http.request.env['property.offer']
         property_offers = PropertyOffers.search([])
         
-        
         return request.render('estate.create_offer', {
             'property': property,
             'property_offers' :property_offers,
@@ -77,9 +75,7 @@ class RealEstate(http.Controller):
     
     # Redirect to thank you page
     @http.route('/create/offer', type='http', auth='user', website=True)
-    def create_new_offer(self,**kw):
-        # request.env['real.estate'].sudo().create(kw)
-        
+    def create_new_offer(self,**kw):        
         request.env['property.offer'].sudo().create(kw)
         return request.render('estate.user_thanks',{})
     
@@ -95,3 +91,42 @@ class RealEstate(http.Controller):
         Property = http.request.env['real.estate']
         property = Property.sudo().browse(property_id)
         return http.request.render('estate.my_property_details',{'property': property})
+    
+    
+    
+    #edit user property
+    @http.route('/my_properties/edit/<int:property_id>', type='http', auth='user', website=True)
+    def user_property_edit_form(self, property_id, **post):
+        property = request.env['real.estate'].sudo().browse(property_id)
+        
+        if not property:
+            return request.render("website.404")
+
+        if request.httprequest.method == 'POST':
+            property.write(post)
+            print("hello")
+            return request.redirect('/property/edit/%s' % property.id)
+        
+        #property types value search
+        PropertyType = http.request.env['property.type']
+        property_types = PropertyType.search([])
+        
+        #state value search
+        State = http.request.env['res.country.state']
+        states = State.search([])
+        
+        #country value search
+        Country = http.request.env['res.country']
+        countries = Country.search([])
+        
+        garden_orientations = request.env['real.estate'].fields_get(allfields=['garden_orientation'])['garden_orientation']['selection']
+
+        values = {
+            'property': property,
+            'property_types': property_types,
+            'garden_orientations': garden_orientations,
+            'states':states,
+            'countries':countries,
+        }
+
+        return request.render('estate.user_property_edit_form', values)

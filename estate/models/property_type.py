@@ -34,3 +34,4 @@ class PropertyType(models.Model):
                 'domain' : [('id' , 'in' ,rec.house.new_offers.ids)],
                 'type' : 'ir.actions.act_window'
                     }   
+            

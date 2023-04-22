@@ -10,7 +10,6 @@
     <!-- show all property -->
     <template id="property_page" name="Properties">
         <t t-call='website.layout'>
-
             <div class="container">
                 <br />
                 <br />
@@ -34,12 +33,11 @@
                                             <div class="solu_description">
                                                 <p> $ <t t-esc="property.expected_price" />
                                                 </p>
-                                                <div>
+                                                <div><a
+                                                            t-att-href="'/properties/' + str(property.id)">
                                                     <button type="button" class="btn read_more_btn">
-                                                        <a
-                                                            t-att-href="'/properties/' + str(property.id)">View
-                                                            Details</a>
-                                                    </button>
+                                                        View Details
+                                                    </button></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -97,7 +95,7 @@
                         </div>
                         <div class="col-md-8">
                             <div t-if="property.property_image" t-field="property.property_image" data-setbg="property.property_image"
-                                class="card-img-top border border-primary rounded"
+                                class="card-img-top rounded"
                                 t-options="{'widget':'image', 'img_style':'width:800px;height:255px;','width':800,'height':255}"></div>
                         </div>
                     </div>
@@ -151,7 +149,6 @@
                 </t>
         </div>
         </div>
-        
         <div class="col-md-4">
             <form role='form' action='/create/offer' method="POST">
                 <input type='hidden' name='csrf_token'
@@ -245,6 +242,5 @@
             </t>
         </field>
     </record>
-
 
 </odoo>

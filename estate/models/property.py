@@ -2,10 +2,6 @@ from odoo import api, fields, models,_
 from odoo import exceptions
 from odoo.exceptions import ValidationError
 import random
-import xlsxwriter
-import io
-
-
 
 
 class RealEstate(models.Model):
@@ -292,17 +288,15 @@ class RealEstate(models.Model):
                     ("You can not delete canceled property!")
                 )
             
-                
-
-                
+                                
     # Send mail when property create
     @api.model
     def create(self, vals):
         property = super(RealEstate, self).create(vals)
-
+                                                                        
         template_id = self.env.ref('estate.property_created_email').id
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(property.id, force_send=True)
-    
+
         return property
 

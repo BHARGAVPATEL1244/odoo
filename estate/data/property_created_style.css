@@ -1,5 +1,4 @@
-/* CONFIG STYLES Please do not delete and edit CSS styles below */
-/* IMPORTANT THIS STYLES MUST BE ON FINAL EMAIL */
+
 .rollover div {
     font-size: 0;
 }
@@ -30,9 +29,6 @@ a[x-apple-data-detectors] {
     line-height: 0;
 }
 
-/*
-END OF IMPORTANT
-*/
 body {
     width: 100%;
     font-family: Imprima, Arial, sans-serif;
