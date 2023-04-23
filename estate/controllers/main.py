@@ -94,18 +94,10 @@ class RealEstate(http.Controller):
     
     
     
-    #edit user property
+    #redirect to user edit property form
     @http.route('/my_properties/edit/<int:property_id>', type='http', auth='user', website=True)
-    def user_property_edit_form(self, property_id, **post):
+    def user_property_edit_form(self, property_id):
         property = request.env['real.estate'].sudo().browse(property_id)
-        
-        if not property:
-            return request.render("website.404")
-
-        if request.httprequest.method == 'POST':
-            property.write(post)
-            print("hello")
-            return request.redirect('/property/edit/%s' % property.id)
         
         #property types value search
         PropertyType = http.request.env['property.type']
@@ -120,7 +112,7 @@ class RealEstate(http.Controller):
         countries = Country.search([])
         
         garden_orientations = request.env['real.estate'].fields_get(allfields=['garden_orientation'])['garden_orientation']['selection']
-
+        
         values = {
             'property': property,
             'property_types': property_types,
@@ -128,5 +120,37 @@ class RealEstate(http.Controller):
             'states':states,
             'countries':countries,
         }
+        return request.render('estate.property_update', values)
 
-        return request.render('estate.user_property_edit_form', values)
+
+    #update user property
+    @http.route('/my_properties/update', type='http', auth='user', website=True)
+    def property_update(self, property_id,**kw):
+        print("hello4")
+        print(kw)
+        # Update the property in the backend
+        # property_id = kw.get('property_id')
+        print(property_id,"++++++property id+++++")
+        
+        property = request.env['real.estate'].sudo().browse(int(property_id))
+        print(property , "+++++++++++")
+        property.write(kw)
+        if property.write(kw):
+            print('done')
+        else:
+            print("not done")
+        print("hello5")
+        # Redirect back to the property detail page
+        
+        return request.redirect('/my_properties/%s' % property.id)
+    
+    
+    #delete user property
+    @http.route('/my_properties/delete/<int:property_id>', type='http', auth='user', website=True)
+    def delete_property(self, property_id, **kw):
+        property = request.env['real.estate'].sudo().browse(int(property_id))
+        if property.new_offers:
+            for offer in property.new_offers:
+                offer.unlink()
+        property.unlink()
+        return request.redirect('/my_properties')

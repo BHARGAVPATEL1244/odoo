@@ -97,10 +97,10 @@ textarea.form-control{
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #00bcd9;
-  border-color: #00bcd9;
-}
+	color: #fff;
+	background-color: #00bcd9;
+	border-color: #00bcd9;
+  }
 
 .btn-primary:hover {
   color: #00bcd9;
