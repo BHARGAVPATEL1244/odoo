@@ -60,15 +60,15 @@ management tasks.
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/tree_view.png" width="500" />
-<img src="estate/static/description/img/calender_view.png" width="500" />
+<img src="estate/static/description/img/tree_view.png" width=400" />
+<img src="estate/static/description/img/calender_view.png" width="400" />
 
 </div>
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/pie_view.png" width="500"/>
-<img src="estate/static/description/img/pivot_view.png" width="500" />
+<img src="estate/static/description/img/pie_view.png" width="400"/>
+<img src="estate/static/description/img/pivot_view.png" width="400" />
 
 </div>
 
@@ -224,15 +224,15 @@ manage their real estate portfolio.
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/property%20Created%20Mail.png" width="500" />
-<img src="estate/static/description/img/Property%20Report%20mail.png" width="500" />
+<img src="estate/static/description/img/property%20Created%20Mail.png" width="400" />
+<img src="estate/static/description/img/Property%20Report%20mail.png" width="400" />
 
 </div>
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/Offer%20Accepted%20Mail.png" width="500" />
-<img src="estate/static/description/img/Offer%20Reject%20mail.png" width="500" />
+<img src="estate/static/description/img/Offer%20Accepted%20Mail.png" width="400" />
+<img src="estate/static/description/img/Offer%20Reject%20mail.png" width="400" />
 
 </div>
 
