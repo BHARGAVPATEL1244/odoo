@@ -245,7 +245,7 @@ properly documented.
 With just a few clicks, you can create a professional-looking invoice
 for your property sale.
 
-## Frontend Views
+# Frontend Views
 
 ## **All Listed Property**
 
