@@ -59,12 +59,12 @@ management tasks.
 # Different Views Based on your Choice
 
 <div>
-<img src="estate/static/description/img/tree_view.png" width="450" />
-<img src="estate/static/description/img/calender_view.png" width="450" />
+<img src="estate/static/description/img/tree_view.png" width="400" />
+<img src="estate/static/description/img/calender_view.png" width="400" />
 </div>
 <div>
-<img src="estate/static/description/img/pie_view.png" width="450"/>
-<img src="estate/static/description/img/pivot_view.png" width="450" />
+<img src="estate/static/description/img/pie_view.png" width="400"/>
+<img src="estate/static/description/img/pivot_view.png" width="400" />
 </div>
 
 ## **List Your Property Here**
