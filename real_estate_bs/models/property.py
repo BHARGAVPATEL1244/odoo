@@ -12,7 +12,7 @@ class RealEstate(models.Model):
     postcode = fields.Char(string='Postcode')
     buyer = fields.Many2one('res.partner' ,string='Buyer', readonly=True, copy=False)
     email = fields.Char(string='Email', required=True)
-    phone = fields.Char(string="Phone Number", required=True , default='+917572869098')
+    phone = fields.Char(string="Phone Number", required=True , default='+911234567890')
 
     # date fields 
     date_availability = fields.Date(
