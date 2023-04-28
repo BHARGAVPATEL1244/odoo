@@ -1,4 +1,5 @@
-from odoo import  fields, models, Command
+from odoo import fields, models, Command
+
 
 class AccountMove(models.Model):
 
@@ -6,15 +7,15 @@ class AccountMove(models.Model):
 
     def action_do_sold(self):
         res = super(AccountMove, self).action_do_sold()
-        print('buyer : ' ,self.buyer)
-        print('++++res+++',res)
+        # print('buyer : ' ,self.buyer)
+        # print('++++res+++',res)
 
         val = self.env["account.move"].create({
             'name': self.env['ir.sequence'].next_by_code(
                 'property.invoice'),
             'partner_id': self.buyer.id,
             'move_type': 'out_invoice',
-            'invoice_date':fields.datetime.now(),
+            'invoice_date': fields.datetime.now(),
             'invoice_line_ids': [
                 Command.create({
                     'name': 'Property Price',

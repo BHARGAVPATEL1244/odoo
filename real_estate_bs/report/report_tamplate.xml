@@ -9,28 +9,30 @@
                         <group>
                             <table style='width:100%' class="table table-borderless">
                                 <tbody>
-                                <tr>
-                                    <td>
-                                        <div t-field="docs.property_image"
-                                        t-options="{'widget':'image', 'img_style':'width:600px;height:600px;','width':600,'height':600}"/>
-                                    </td>
-                                    <td>
-                                        <span style="margin-left:10px;width:200px;height:200px;" >
-                                            <img
-                                                t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', {docs.name
+                                    <tr>
+                                        <td>
+                                            <div t-field="docs.property_image"
+                                                t-options="{'widget':'image', 'img_style':'width:600px;height:600px;','width':600,'height':600}" />
+                                        </td>
+                                        <td>
+                                            <span style="margin-left:10px;width:200px;height:200px;">
+                                                <img
+                                                    t-att-src="'/report/barcode/?barcode_type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('QR', {docs.name
                                                     ,docs.salesmen.name,
                                                     docs.expected_price,
                                                     docs.barcode}, 140, 140)"
                                                 />
-                                        </span>
-                                        <span style="margin-left:10px;">
-                                        <p t-out="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y %H:%M')" style="margin-left:10px;"/>
-                                        </span>
-                                    </td>
-                                </tr>
-                            </tbody>
+                                            </span>
+                                            <span style="margin-left:10px;">
+                                                <p
+                                                    t-out="context_timestamp(datetime.datetime.now()).strftime('%d-%m-%Y %H:%M')"
+                                                    style="margin-left:10px;" />
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
-                            
+
                         </group>
                         <group>
                             <h1>

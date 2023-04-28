@@ -19,69 +19,71 @@ class PropertyOffer(models.Model):
 
     property_id = fields.Many2one(
         'real.estate', string='Property Id', invisible=True)
-    salesman = fields.Many2one(related ='property_id.salesmen')
+    salesman = fields.Many2one(related='property_id.salesmen')
     property_type_id = fields.Many2one(
         'property.type', string='Property Type Id', related="property_id.property_type_id")
 
     tax = fields.Float()
     admin_charge = fields.Float()
     total = fields.Float()
-    
+
     # # sql constraints
     # _sql_constraints = [
     #     ('check_price', 'CHECK(price > 0)', 'Price Must Be Positive Number.'),
     #     ('check_expected_days', 'CHECK(expected_days > 0)', 'Expected Days Must Be Positive Number.'),
     #     ('check_deadlines', 'CHECK(deadlines < property_id.date_availability )', 'Deadline Must Be Select After Availability Date.'),
     # ]
-    
+
     # constrains for price
     @api.onchange('price')
     def _check_price(self):
         for rec in self:
-            if rec.price < 0 :
+            if rec.price < 0:
                 raise exceptions.UserError(
                     ('Price must be positive number')
-                    )
+                )
 
-    # constrains for expected days      
+    # constrains for expected days
     @api.onchange('expected_days')
     def _check_expected_days(self):
         for rec in self:
-            if rec.expected_days >= 0 :
+            if rec.expected_days >= 0:
                 pass
-            else :
+            else:
                 raise exceptions.UserError(
                     ('Expected days must be more then 0')
-                    )
-    
-    # check deadlines is after date availablity            
+                )
+
+    # check deadlines is after date availablity
     @api.onchange('deadlines')
     def _check_bedrooms(self):
         for rec in self:
-            if rec.deadlines >= rec.property_id.date_availability :
+            if rec.deadlines >= rec.property_id.date_availability:
                 pass
-            else :
+            else:
                 raise exceptions.UserError(
                     ('Deadlines must be more then availability date')
-                    )
+                )
 
     # offer accept
     def on_accept(self):
         for rec in self:
             if 'accept' in rec.property_id.new_offers.mapped('offer_status'):
-                raise exceptions.UserError(('Can not Accept anoteher offer for same property'))
-            else :
+                raise exceptions.UserError(
+                    ('Can not Accept anoteher offer for same property'))
+            else:
                 rec.tax = (rec.price + 6)/100
                 rec.admin_charge = 100
                 rec.total = rec.price + rec.admin_charge + rec.tax
-                
+
                 rec.property_id.selling_price = rec.price
                 rec.property_id.state = 'offer_accepted'
                 rec.property_id.buyer = rec.partner_id.id
-                
+
                 rec.offer_status = 'accept'
-                                
-                template_id = self.env.ref('real_estate_bs.property_offer_accepted_email').id
+
+                template_id = self.env.ref(
+                    'real_estate_bs.property_offer_accepted_email').id
                 template = self.env['mail.template'].browse(template_id)
                 template.send_mail(self.id, force_send=True)
 
@@ -90,17 +92,18 @@ class PropertyOffer(models.Model):
         for rec in self:
             if rec.offer_status == 'new':
                 rec.offer_status = 'reject'
-                
-                template_id = self.env.ref('real_estate_bs.property_offer_rejected_email').id
+
+                template_id = self.env.ref(
+                    'real_estate_bs.property_offer_rejected_email').id
                 template = self.env['mail.template'].browse(template_id)
                 template.send_mail(self.id, force_send=True)
-                
+
             elif rec.offer_status == 'accept':
                 raise exceptions.UserError(('Offer already accepted'))
             else:
                 raise exceptions.UserError(('offer already rejected'))
 
-    # check price is Higher then expected price 
+    # check price is Higher then expected price
     @api.constrains('price')
     def _check_price(self):
         for rec in self:
@@ -123,11 +126,10 @@ class PropertyOffer(models.Model):
                 rec.deadlines = rec.property_id.date_availability + \
                     timedelta(days=rec.expected_days)
 
-    # change expected days when deadlined added 
+    # change expected days when deadlined added
     @api.onchange('deadlines')
     def _days_to_date_converter(self):
         for rec in self:
             if rec.deadlines:
                 rec.expected_days = (
                     rec.deadlines - rec.property_id.date_availability).days
-                

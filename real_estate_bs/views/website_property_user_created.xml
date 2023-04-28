@@ -393,7 +393,6 @@
             <br />
             <br />
         </t>
-
     </template>
 
 
@@ -407,11 +406,11 @@
                             <div class="d-flex flex-row align-items-center">
                                 <i class="fa fa-long-arrow-left"> </i>
                                 <a t-att-href="'/my_properties/'+ str(property.id)">
-                                    <span class="ml-2"> Back</span>
+                                    <span class="ml-2"> Back </span>
                                 </a>
                             </div>
                             <hr />
-                            <h6 class="mb-0">Property Offer</h6>
+                            <h6 class="mb-0"> Property Offer </h6>
                             <t t-set="offers" t-value="property.mapped('new_offers')" />
                             <t t-foreach="offers" t-as="offer">
                                 <div
@@ -429,7 +428,9 @@
                                         <span class="d-block ml-5 font-weight-bold">$ <t
                                                 t-esc="offer.price" /></span>
                                     </div>
-                                    <button alt="delete"> Delete</button>
+                                    <a href="/my_properties">
+                                        <button alt="delete"> Delete </button>
+                                    </a>
                                 </div>
                             </t>
                         </div>

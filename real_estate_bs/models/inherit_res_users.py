@@ -6,4 +6,3 @@ class Users(models.Model):
 
     property_ids = fields.One2many(
         'real.estate', 'salesmen')
-

@@ -14,6 +14,7 @@
     'data' : {
         'security/ir.model.access.csv',
         
+        #views
         # 'views/estate_menu.xml',
         'views/property_view.xml',
         'views/property_type_view.xml',
@@ -32,12 +33,11 @@
         'report/report_tamplate.xml',
         
         #mail tamplates
-        # 'data/mail_report_template.xml',
+        'data/mail_report_template.xml',
         'data/mail_offer_accept_template.xml',
         'data/mail_offer_reject_template.xml',
         'data/mail_property_created_template.xml',
-        "data/Property_invoice_sequence.xml" 
-        
+        "data/Property_invoice_sequence.xml",
     },
     
     "assets" :{
@@ -45,7 +45,7 @@
             "real_estate_bs/static/js/property_form.js",
             "real_estate_bs/static/css/style.css",
             "real_estate_bs/static/css/property_single_product_style.css",
-        ]
+        ],
     },
     
     'images': ['static/description/banner.gif'],
@@ -53,4 +53,5 @@
     'installable': True,
     'auto_install': False,
     'application': True,
+    
     }

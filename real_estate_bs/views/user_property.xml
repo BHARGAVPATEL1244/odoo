@@ -1,5 +1,5 @@
 <odoo>
-    
+
     <!-- inherit property in res.users to show property in user module -->
     <record id="view_users_form_view" model="ir.ui.view">
         <field name="name">view.users.form.inherit</field>
@@ -12,7 +12,7 @@
                     <tree>
                         <field name='property_ids' />
                     </tree>
-                    
+
                 </page>
             </xpath>
         </field>

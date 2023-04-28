@@ -11,5 +11,5 @@
         <field name="binding_model_id" ref="model_real_estate" />
         <field name="binding_type">report</field>
     </record>
-    
+
 </odoo>

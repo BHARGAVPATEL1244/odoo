@@ -9,6 +9,5 @@ class PropertyTag(models.Model):
 
     # sql constraints
     _sql_constraints = [
-        ( 'unique_tag_name', 'unique(name)', 'Tag Must Be Unique.' )
+        ('unique_tag_name', 'unique(name)', 'Tag Must Be Unique.')
     ]
-

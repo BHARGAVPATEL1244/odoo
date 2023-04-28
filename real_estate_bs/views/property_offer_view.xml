@@ -18,9 +18,11 @@
                 <field name='salesman' invisible="1" />
                 <field name='offer_status' string='Status' readonly='1' />
                 <button name='on_accept' type='object' icon='fa-check'
-                    attrs="{'invisible': ['|',('offer_status','=','accept'),('offer_status','=','reject')]}" title=" " />
+                    attrs="{'invisible': ['|',('offer_status','=','accept'),('offer_status','=','reject')]}"
+                    title=" " />
                 <button name='on_reject' type='object' icon='fa-times'
-                    attrs="{'invisible': ['|',('offer_status','=','accept'),('offer_status','=','reject')]}" title=" " />
+                    attrs="{'invisible': ['|',('offer_status','=','accept'),('offer_status','=','reject')]}"
+                    title=" " />
             </tree>
         </field>
     </record>
@@ -34,12 +36,12 @@
                 <group>
                     <group>
                         <field name='property_id' invisible="1" />
-                        <field name='partner_id' class="form-control"/>
+                        <field name='partner_id' class="form-control" />
                         <field name='email' class="form-control" placeholder='xyz@gmail.com' />
-                        <field name='expected_days' class="form-control"/>
-                        <field name='deadlines' class="form-control"/>
-                        <field name='price' class="form-control"/>
-                        <field name='offer_status' string='Status' readonly='1' class="form-control"/>
+                        <field name='expected_days' class="form-control" />
+                        <field name='deadlines' class="form-control" />
+                        <field name='price' class="form-control" />
+                        <field name='offer_status' string='Status' readonly='1' class="form-control" />
                     </group>
                 </group>
             </form>
@@ -53,10 +55,13 @@
         <field name='arch' type='xml'>
             <search>
                 <group expand="0" string="Group By">
-                    <filter string="Property" name="property_id" context="{'group_by':'property_id'}" />
-                    <filter string="Expected day" name="property_id" context="{'group_by':'property_id'}" />
-                    <filter string="Status" name="offer_status" context="{'group_by':'offer_status'}" />
-                    <filter string="Email" name="email" context="{'group_by':'email'}"/>
+                    <filter string="Property" name="property_id"
+                        context="{'group_by':'property_id'}" />
+                    <filter string="Expected day" name="property_id"
+                        context="{'group_by':'property_id'}" />
+                    <filter string="Status" name="offer_status"
+                        context="{'group_by':'offer_status'}" />
+                    <filter string="Email" name="email" context="{'group_by':'email'}" />
                 </group>
             </search>
         </field>
@@ -69,9 +74,9 @@
         <field name='view_mode'>tree,form</field>
     </record>
 
-    
 
-    <menuitem id='real_estate_bs.menu_2_offers' action="action_property_offer" parent='real_estate_bs.menu_2'
-         name='Property Offers' sequence='30' />
+    <menuitem id='real_estate_bs.menu_2_offers' action="action_property_offer"
+        parent='real_estate_bs.menu_2'
+        name='Property Offers' sequence='30' />
 
 </odoo>

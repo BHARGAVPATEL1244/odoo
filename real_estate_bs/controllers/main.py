@@ -165,3 +165,6 @@ class RealEstate(http.Controller):
         Property = http.request.env['real.estate']
         property = Property.sudo().browse(property_id)
         return http.request.render('real_estate_bs.my_property_offers',{'property': property})
+    
+    
+    

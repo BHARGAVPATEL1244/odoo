@@ -33,11 +33,14 @@
                                             <div class="solu_description">
                                                 <p> $ <t t-esc="property.expected_price" />
                                                 </p>
-                                                <div><a
-                                                            t-att-href="'/properties/' + str(property.id)">
-                                                    <button type="button" class="btn read_more_btn">
-                                                        View Details
-                                                    </button></a>
+                                                <div>
+                                                    <a
+                                                        t-att-href="'/properties/' + str(property.id)">
+                                                        <button type="button"
+                                                            class="btn read_more_btn">
+                                                            View Details
+                                                        </button>
+                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
@@ -54,12 +57,11 @@
     </template>
 
 
-
-
     <!-- dynamic property reports -->
     <template id="property_details" name="Property Details">
         <t t-call='website.layout'>
-            <link rel="stylesheet" href="real_estate_bs/static/css/property_single_product_style.css" />
+            <link rel="stylesheet"
+                href="real_estate_bs/static/css/property_single_product_style.css" />
 
             <div class="container py-4 my-4 mx-auto d-flex flex-column">
                 <div class="header">
@@ -94,7 +96,8 @@
                             </ul>
                         </div>
                         <div class="col-md-8">
-                            <div t-if="property.property_image" t-field="property.property_image" data-setbg="property.property_image"
+                            <div t-if="property.property_image" t-field="property.property_image"
+                                data-setbg="property.property_image"
                                 class="card-img-top rounded"
                                 t-options="{'widget':'image', 'img_style':'width:800px;height:255px;','width':800,'height':255}"></div>
                         </div>
@@ -110,9 +113,11 @@
                         <div class="col-md-2 mio offset-md-4">
                         </div>
                         <div class="col-md-2 myt ">
-                            <a t-att-href="'/properties/' + str(property.id) + '/create_offer' "><button type="button" class="btn btn-outline-warning">
-                                BUY NOW
-                            </button></a>
+                            <a t-att-href="'/properties/' + str(property.id) + '/create_offer' ">
+                                <button type="button" class="btn btn-outline-warning">
+                                    BUY NOW
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -121,81 +126,95 @@
     </template>
 
 
-
-
-
     <!-- property offer page  -->
     <template id="create_offer" name="Property Offer">
         <t t-call='website.layout'>
             <div class="container mt-5 p-3 rounded cart">
-            <div class="row no-gutters">
-            <div class="col-md-8">
-            <div class="product-details mr-2">
-                <div class="d-flex flex-row align-items-center">
-                    <i class="fa fa-long-arrow-left"> </i> 
-                    <a t-att-href="'/properties/' + str(property.id) "><span class="ml-2"> Back</span></a>
-                </div>
-                <hr />
-                <h6 class="mb-0">Property Offer</h6>
-                <t t-set="offers" t-value="property.mapped('new_offers')" />
-                <t t-foreach="offers" t-as="offer">
-                
-                    <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
-                        <div class="d-flex flex-row">
-                            <div class="ml-2"><span class="font-weight-bold d-block"> <t t-esc="offer.partner_id.name" /></span><span class="spec"> Days Left : <t t-esc="offer.expected_days" /></span></div>
-                        </div>
-                        <div class="d-flex flex-row align-items-center"><span class="d-block ml-5 font-weight-bold">$ <t t-esc="offer.price" /></span></div>
-                    </div>
-                </t>
-        </div>
-        </div>
-        <div class="col-md-4">
-            <form role='form' action='/create/offer' method="POST">
-                <input type='hidden' name='csrf_token'
-                    t-att-value='request.csrf_token()' />
-            <div class="payment-info">
-                <div class="d-flex justify-content-between align-items-center">
-                    <span>Offer</span>
-                </div>
+                <div class="row no-gutters">
+                    <div class="col-md-8">
+                        <div class="product-details mr-2">
+                            <div class="d-flex flex-row align-items-center">
+                                <i class="fa fa-long-arrow-left"> </i>
+                                <a t-att-href="'/properties/' + str(property.id) ">
+                                    <span class="ml-2"> Back</span>
+                                </a>
+                            </div>
+                            <hr />
+                            <h6 class="mb-0">Property Offer</h6>
+                            <t t-set="offers" t-value="property.mapped('new_offers')" />
+                            <t t-foreach="offers" t-as="offer">
 
-                <div>
-                    <input type='hidden' name='property_id'
-                    t-att-value='property.id' />
-                    <label class="credit-card-label">Name</label>
-                    <select id="dropdown" name="partner_id" class="form-control credit-inputs" placeholder="Country">
-                            <t t-foreach="property_offers" t-as="offer">
-                                <option t-att-value="offer.partner_id.id" >
-                                    <t t-esc="offer.partner_id.name"/>
-                                </option>
+                                <div
+                                    class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded">
+                                    <div class="d-flex flex-row">
+                                        <div class="ml-2">
+                                            <span class="font-weight-bold d-block">
+                                                <t t-esc="offer.partner_id.name" />
+                                            </span>
+                                            <span class="spec"> Days Left : <t
+                                                    t-esc="offer.expected_days" /></span>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-row align-items-center">
+                                        <span class="d-block ml-5 font-weight-bold">$ <t
+                                                t-esc="offer.price" /></span>
+                                    </div>
+                                </div>
                             </t>
-                    </select>
-                </div>
-                <div>
-                    <label class="credit-card-label">Email</label>
-                    <input type="email" name="email" class="form-control credit-inputs"
-                        placeholder="realestate@gmail.com" />
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label class="credit-card-label">Days</label>
-                        <input type="number" name="expected_days" class="form-control credit-inputs" placeholder="00" />
+                        </div>
                     </div>
-                    <div class="col-md-6">
-                        <label class="credit-card-label">Price</label>
-                        <input type="number" name="price" class="form-control credit-inputs" placeholder="00.0" />
+                    <div class="col-md-4">
+                        <form role='form' action='/create/offer' method="POST">
+                            <input type='hidden' name='csrf_token'
+                                t-att-value='request.csrf_token()' />
+                            <div class="payment-info">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span>Offer</span>
+                                </div>
+
+                                <div>
+                                    <input type='hidden' name='property_id'
+                                        t-att-value='property.id' />
+                                    <label class="credit-card-label">Name</label>
+                                    <select id="dropdown" name="partner_id"
+                                        class="form-control credit-inputs" placeholder="Country">
+                                        <t t-foreach="property_offers" t-as="offer">
+                                            <option t-att-value="offer.partner_id.id">
+                                                <t t-esc="offer.partner_id.name" />
+                                            </option>
+                                        </t>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="credit-card-label">Email</label>
+                                    <input type="email" name="email"
+                                        class="form-control credit-inputs"
+                                        placeholder="realestate@gmail.com" />
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label class="credit-card-label">Days</label>
+                                        <input type="number" name="expected_days"
+                                            class="form-control credit-inputs" placeholder="00" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="credit-card-label">Price</label>
+                                        <input type="number" name="price"
+                                            class="form-control credit-inputs" placeholder="00.0" />
+                                    </div>
+                                </div>
+                                <hr class="line" />
+                                <button
+                                    class="btn btn-primary btn-block d-flex justify-content-between mt-3"
+                                    type="submit" id="submit">
+                                    <span>Send Offer<i class="fa fa-long-arrow-right ml-1"></i></span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
+
                 </div>
-                <hr class="line" />
-                <button class="btn btn-primary btn-block d-flex justify-content-between mt-3"
-                type="submit" id="submit">
-                    <span>Send Offer<i class="fa fa-long-arrow-right ml-1"></i></span>
-                </button>
             </div>
-        </form>
-        </div>
-    
-        </div>
-        </div>
         </t>
     </template>
 
@@ -217,9 +236,13 @@
                                     <div class="border border-3 border-success"></div>
                                     <div class="card  bg-white shadow p-5">
                                         <div class="mb-4 text-center">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75"
-                                                fill="currentColor" class="text-success bi bi-check-circle" viewBox="0 0 16 16">
-                                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="75"
+                                                height="75"
+                                                fill="currentColor"
+                                                class="text-success bi bi-check-circle"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                                 <path
                                                     d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
                                             </svg>
@@ -229,7 +252,8 @@
                                             <p>We've send the mail to your inbox.</p>
                                         </div>
                                         <div class="text-center">
-                                            <a t-att-href="'/property_form'" class="btn btn-primary">Back</a>
+                                            <a t-att-href="'/property_form'" class="btn btn-primary">
+                                                Back</a>
                                         </div>
                                     </div>
                                 </div>
@@ -240,5 +264,6 @@
             </t>
         </field>
     </record>
+
 
 </odoo>

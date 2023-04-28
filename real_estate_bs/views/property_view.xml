@@ -280,6 +280,5 @@
     <menuitem id='real_estate_bs.menu_2' parent='real_estate_bs.root_menu' name='Property'
         sequence='20' />
 
-    <!-- sub sub menu -->
 
 </odoo>
