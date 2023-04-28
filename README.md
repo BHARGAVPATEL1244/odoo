@@ -43,7 +43,7 @@ commissions.
 
 ##### 
 
-<img src="estate/static/description/img/kanban_view.png" />
+<img src="real_estate_bs/static/description/img/kanban_view.png" />
 
 With our app, you can easily list and sell properties, generate offers
 reports, and create invoices after sales.
@@ -60,22 +60,22 @@ management tasks.
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/tree_view.png" width="400" />
-<img src="estate/static/description/img/calender_view.png" width="400" />
+<img src="real_estate_bs/static/description/img/tree_view.png" width="400" />
+<img src="real_estate_bs/static/description/img/calender_view.png" width="400" />
 
 </div>
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/pie_view.png" width="400"/>
-<img src="estate/static/description/img/pivot_view.png" width="400" />
+<img src="real_estate_bs/static/description/img/pie_view.png" width="400"/>
+<img src="real_estate_bs/static/description/img/pivot_view.png" width="400" />
 
 </div>
 
 ## **List Your Property Here**
 
 ##### 
-<img src="estate/static/description/img/property_form.png" />
+<img src="real_estate_bs/static/description/img/property_form.png" />
 
 With our real estate property management app, adding new properties has
 never been easier.
@@ -97,7 +97,7 @@ real estate properties has never been more streamlined.
 ## **Get Offers Right Now**
 
 ##### 
-<img src="estate/static/description/img/property_form_offers.png" />
+<img src="real_estate_bs/static/description/img/property_form_offers.png" />
 
 Listing your property on our real estate property management app not
 only provides exposure to potential buyers but also attracts offers for
@@ -115,7 +115,7 @@ possible value for your property.
 
 ##### 
 
-<img src="estate/static/description/img/property_form_offers_accept.png" />
+<img src="real_estate_bs/static/description/img/property_form_offers_accept.png" />
 
 Our real estate property management app takes the hassle out of
 selecting the best buyer for your property.
@@ -132,7 +132,7 @@ selling your property.
 ## **See Other Info**
 
 ##### 
-<img src="estate/static/description/img/property_form_other_info.png" />
+<img src="real_estate_bs/static/description/img/property_form_other_info.png" />
 
 Our real estate property management app makes it easy to keep track of
 all the important details related to your property sale.
@@ -146,7 +146,7 @@ property selling process, ensuring a smooth and hassle-free experience.
 ## **Add Tags in ur Property**
 
 ##### 
-<img src="estate/static/description/img/tags.png" />
+<img src="real_estate_bs/static/description/img/tags.png" />
 
 Our real estate property management app allows you to easily categorize
 and tag your property, making it more accessible to potential buyers.
@@ -164,7 +164,7 @@ property and increase your chances of a successful sale.
 ## **What type of ur property?**
 
 ##### 
-<img src="estate/static/description/img/types.png" />
+<img src="real_estate_bs/static/description/img/types.png" />
 
 Our real estate property management app allows you to categorize your
 property based on its type, making it easier for potential buyers to
@@ -181,7 +181,7 @@ property and increase your chances of a successful sale
 ## **Property Analytics**
 
 ##### 
-<img src="estate/static/description/img/property_report.png" />
+<img src="real_estate_bs/static/description/img/property_report.png" />
 
 With our app's powerful reporting feature, you can easily generate
 comprehensive PDF reports of all your properties.
@@ -205,7 +205,7 @@ estate management tasks and make data-driven decisions.
 ## **User Property**
 
 ##### 
-<img src="estate/static/description/img/user_created_property.png" />
+<img src="real_estate_bs/static/description/img/user_created_property.png" />
 
 This picture illustrates how user-created properties in Odoo's real
 estate module are visible in the user's tab.
@@ -224,22 +224,22 @@ manage their real estate portfolio.
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/property%20Created%20Mail.png" width="400" />
-<img src="estate/static/description/img/Property%20Report%20mail.png" width="400" />
+<img src="real_estate_bs/static/description/img/property%20Created%20Mail.png" width="400" />
+<img src="real_estate_bs/static/description/img/Property%20Report%20mail.png" width="400" />
 
 </div>
 
 <div class="o_masonry_col o_snippet_not_selectable col-lg-6">
 
-<img src="estate/static/description/img/Offer%20Accepted%20Mail.png" width="400" />
-<img src="estate/static/description/img/Offer%20Reject%20mail.png" width="400" />
+<img src="real_estate_bs/static/description/img/Offer%20Accepted%20Mail.png" width="400" />
+<img src="real_estate_bs/static/description/img/Offer%20Reject%20mail.png" width="400" />
 
 </div>
 
 ## **Property Sales Invoice**
 
 ##### 
-<img src="estate/static/description/img/property_invoice.png" />
+<img src="real_estate_bs/static/description/img/property_invoice.png" />
 
 When you sell a property through our app, you can easily generate an
 invoice for the transaction.
@@ -260,7 +260,7 @@ for your property sale.
 ## **All Listed Property**
 
 ##### 
-<img src="estate/static/description/img/All_property.png"  />
+<img src="real_estate_bs/static/description/img/All_property.png"  />
 
 real estate website that displays all of the properties that have been
 created and listed by users.
@@ -275,7 +275,7 @@ based on their individual preferences and needs.
 ## **Property Description**
 
 ##### 
-<img src="estate/static/description/img/property_disc.png"  />
+<img src="real_estate_bs/static/description/img/property_disc.png"  />
 
 The page is a dedicated page on a real estate website that provides
 users with a comprehensive view of a specific property.
@@ -290,7 +290,7 @@ location, size, layout, and features.
 ## **Property offer Page**
 
 ##### 
-<img src="estate/static/description/img/offer_page.png" />
+<img src="real_estate_bs/static/description/img/offer_page.png" />
 
 The page is a dedicated page on a real estate website that allows users
 to view all of the current offers that have been made on a particular
@@ -310,7 +310,7 @@ making it more convenient for users.
 ## **Property Create page**
 
 ##### 
-<img src="estate/static/description/img/property_create_form.png" />
+<img src="real_estate_bs/static/description/img/property_create_form.png" />
 
 The page is a key feature of any real estate website, as it allows users
 to list their own property for sale on the platform.
@@ -329,7 +329,7 @@ to showcase its unique features and appeal to potential buyers.
 ## **User Property Page**
 
 ##### 
-<img src="estate/static/description/img/user_created_property.png" />
+<img src="real_estate_bs/static/description/img/user_created_property.png" />
 
 The page is a dedicated section of a real estate website where users can
 view all of the properties they have listed for sale on the platform.
@@ -348,7 +348,7 @@ and any special features or amenities.
 ## **User Property Description Page**
 
 ##### 
-<img src="estate/static/description/img/user_property_disc.png" />
+<img src="real_estate_bs/static/description/img/user_property_disc.png" />
 
 The page is a dedicated page on a real estate website that provides
 users with a comprehensive view of their own listed property.
@@ -367,7 +367,7 @@ showcase its unique features and appeal to potential buyers.
 ## **User Property Edit Page**
 
 ##### 
-<img src="estate/static/description/img/user_property_update_form.png" />
+<img src="real_estate_bs/static/description/img/user_property_update_form.png" />
 
 The page is a dedicated page on a real estate website that allows users
 to edit and update the details of their own listed property.
