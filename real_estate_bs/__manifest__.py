@@ -8,6 +8,8 @@
     'category': 'Industries',
     'description' : 'Real Estate property management',
     'license' : 'LGPL-3',
+    'price' : '10.0',
+    'currency' : 'USD',
     
     'depends' : ['base', 'sale','account', 'mail', 'website'],
     
