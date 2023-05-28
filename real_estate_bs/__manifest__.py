@@ -17,29 +17,29 @@
         'security/ir.model.access.csv',
         
         #views
-        # 'views/estate_menu.xml',
+#         'views/estate_menu.xml', mot need to uncomment this
         'views/property_view.xml',
-        'views/property_type_view.xml',
-        'views/property_offer_view.xml',
-        'views/property_tag_view.xml',
-        'views/user_property.xml',
-        'views/saleorder_field.xml',
+#         'views/property_type_view.xml',
+#         'views/property_offer_view.xml',
+#         'views/property_tag_view.xml',
+#         'views/user_property.xml',
+#         'views/saleorder_field.xml',
         
         #website templates
-        'views/website_property_create_form.xml',
-        'views/website_property.xml',
-        'views/website_property_user_created.xml',
+#         'views/website_property_create_form.xml',
+#         'views/website_property.xml',
+#         'views/website_property_user_created.xml',
         
         #report template
-        'report/report.xml',
-        'report/report_tamplate.xml',
+#         'report/report.xml',
+#         'report/report_tamplate.xml',
         
         #mail tamplates
-        'data/mail_report_template.xml',
-        'data/mail_offer_accept_template.xml',
-        'data/mail_offer_reject_template.xml',
-        'data/mail_property_created_template.xml',
-        "data/Property_invoice_sequence.xml",
+#         'data/mail_report_template.xml',
+#         'data/mail_offer_accept_template.xml',
+#         'data/mail_offer_reject_template.xml',
+#         'data/mail_property_created_template.xml',
+#         "data/Property_invoice_sequence.xml",
     },
     
     "assets" :{
