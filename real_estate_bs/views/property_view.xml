@@ -106,9 +106,6 @@
                         class="btn btn-success" />
                     <button name="action_do_canceled" type="object" string="Cancel"
                         class="btn btn-danger" />
-
-<!--                     <button name="%(action_report_real_estate)d" string="Print" type="action"
-                        class="btn btn-primary" icon="fa-print" data-hotkey="p" /> -->
                     <button name="action_send_report_email" type="object" string="Email Report"
                         class="btn btn-primary" icon="fa-envelope" data-hotkey="e" />
                     <button name="action_send_report_whatsapp" type="object" string="Whatsapp"
