@@ -642,8 +642,6 @@
                     </table>
                 </div>
             </field>
-            <field name="report_template" ref="action_report_real_estate" />
-            <field name="report_name">Property_report_{{ (object.name or '').replace('/','_') }}</field>
         </record>
     </data>
 </odoo>
