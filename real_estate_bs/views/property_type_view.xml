@@ -77,8 +77,8 @@
         <field name='view_mode'>kanban,tree,form</field>
     </record>
 
-    <menuitem id='real_estate_bs.menu_2_types' action="action_property_types"
-        parent='real_estate_bs.menu_2'
+    <menuitem id='real_estate_bs_menu_2_types' action="action_property_types"
+        parent='real_estate_bs_menu_2'
         name='Property Types' sequence='20' />
 
 </odoo>
