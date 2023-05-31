@@ -272,9 +272,9 @@
     <menuitem id='real_estate_bs.root_menu' name='Real Estate' />
 
     <!-- sub menu -->
-    <menuitem id='real_estate_bs.menu_1' parent='real_estate_bs.root_menu' name='Estate'
+    <menuitem id='real_estate_bs_menu_1' parent='real_estate_bs.root_menu' name='Estate'
         action="action_estate_profile" sequence='10' />
-    <menuitem id='real_estate_bs.menu_2' parent='real_estate_bs.root_menu' name='Property'
+    <menuitem id='real_estate_bs_menu_2' parent='real_estate_bs.root_menu' name='Property'
         sequence='20' />
 
 
