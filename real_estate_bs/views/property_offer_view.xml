@@ -75,8 +75,8 @@
     </record>
 
 
-    <menuitem id='real_estate_bs.menu_2_offers' action="action_property_offer"
-        parent='real_estate_bs.menu_2'
+    <menuitem id='real_estate_bs_menu_2_offers' action="action_property_offer"
+        parent='real_estate_bs_menu_2'
         name='Property Offers' sequence='30' />
 
 </odoo>
